@@ -1,0 +1,18 @@
+apiVersion: autoscaling/v2   
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-cpu-test
+spec:
+  scaleTargetRef:        # replica수를 조정할 대상 설정 
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1   # replica 최소값
+  maxReplicas: 10  # replica 최대값
+  metrics:       # replica수를 조정할 때 참조할 지표 설정 
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50   # 50퍼센트를 기준으로 스케일링 
