@@ -10,7 +10,7 @@ spec:
   tls:
   - secretName: nginx-tls-secret
   rules:
-  - host: "nginx.3.39.152.82.sslip.io"
+  - host: "nginx.3.39.152.82.nip.io"
     http:
       paths:
       - path: /
