@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "nginx.3.39.152.82.nip.io"
+  - host: "nginx.$server-ip.nip.io"
     http:
       paths:
       - path: /
@@ -17,7 +17,7 @@ spec:
             name: nginx-svc
             port:
               number: 80
-  - host: "apache.3.39.152.82.nip.io"
+  - host: "apache.$server-ip.nip.io"
     http:
       paths:
       - path: /
